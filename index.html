@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad 365 - Soluciones Integrales de Seguridad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #6b7280 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero-animation {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-2 shadow-lg">
+                        <img src="" alt="Seguridad 365" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" id="logoImg">
+                        <span class="text-gray-700 font-bold text-2xl" style="display: none;" id="logoFallback">🛡️</span>
+                    </div>
+                    
+                    <!-- Panel para subir logo -->
+                    <div class="p-3 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm" id="logoUploader">
+                        <p class="text-xs mb-2 text-gray-200">Sube tu logo:</p>
+                        <input type="file" accept="image/*" id="logoInput" class="text-xs text-white file:mr-3 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-white file:text-gray-700 hover:file:bg-gray-100">
+                    </div>
+                    
+                    <div class="flex items-baseline space-x-1">
+                        <h1 class="text-3xl font-light tracking-wider text-gray-200">SEGURIDAD</h1>
+                        <span class="text-3xl font-bold text-red-500">365</span>
+                        <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse ml-1"></div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="hover:text-blue-200 transition-colors">Inicio</a>
+                    <a href="#servicios" class="hover:text-blue-200 transition-colors">Servicios</a>
+                    <a href="#nosotros" class="hover:text-blue-200 transition-colors">Nosotros</a>
+                    <a href="#contacto" class="hover:text-blue-200 transition-colors">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center hero-animation">
+            <h2 class="text-5xl font-bold mb-6">Protegemos lo que más Valoras</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Soluciones integrales de seguridad las 24 horas del día, los 365 días del año. Tu tranquilidad es nuestra prioridad.</p>
+            <button onclick="contactarWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105">
+                📱 Contactar Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
+                <p class="text-xl text-gray-600">Tecnología de vanguardia para tu seguridad</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cámaras de Seguridad -->
+                <div class="service-card bg-white rounded-lg p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">📹</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Cámaras de Seguridad</h3>
+                    <p class="text-gray-600 mb-6">Sistemas de videovigilancia HD con visión nocturna y acceso remoto desde tu móvil.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Cámaras IP de alta resolución</li>
+                        <li>✓ Grabación en la nube</li>
+                        <li>✓ Monitoreo 24/7</li>
+                        <li>✓ App móvil incluida</li>
+                    </ul>
+                </div>
+
+                <!-- Alarmas -->
+                <div class="service-card bg-white rounded-lg p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🚨</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Sistemas de Alarmas</h3>
+                    <p class="text-gray-600 mb-6">Alarmas inteligentes con sensores de movimiento y notificaciones directas a tu móvil.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Sensores inalámbricos</li>
+                        <li>✓ Sirenas de alta potencia</li>
+                        <li>✓ Notificaciones instantáneas</li>
+                        <li>✓ Respaldo de batería</li>
+                    </ul>
+                </div>
+
+                <!-- Control de Accesos -->
+                <div class="service-card bg-white rounded-lg p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🔐</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Control de Accesos</h3>
+                    <p class="text-gray-600 mb-6">Sistemas biométricos y tarjetas de proximidad para controlar el acceso a tus instalaciones.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Lectores biométricos</li>
+                        <li>✓ Tarjetas de proximidad</li>
+                        <li>✓ Registro de entradas</li>
+                        <li>✓ Control remoto</li>
+                    </ul>
+                </div>
+
+                <!-- Redes de Internet -->
+                <div class="service-card bg-white rounded-lg p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🌐</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Redes de Internet</h3>
+                    <p class="text-gray-600 mb-6">Instalación y configuración de redes empresariales seguras y de alta velocidad.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Redes cableadas e inalámbricas</li>
+                        <li>✓ Configuración segura</li>
+                        <li>✓ Soporte técnico</li>
+                        <li>✓ Monitoreo de red</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Financing Section -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-white max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold mb-4">💳 Financiación Disponible</h3>
+                    <p class="text-xl mb-6">¡Protege tu hogar o negocio sin comprometer tu presupuesto!</p>
+                    <div class="text-4xl font-bold mb-2">Paga hasta 12 cuotas</div>
+                    <div class="text-2xl">SIN INTERESES</div>
+                    <p class="mt-4 text-lg opacity-90">Consulta condiciones y disponibilidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">¿Por qué elegir Seguridad 365?</h2>
+                    <p class="text-lg text-gray-600 mb-6">Con más de 10 años de experiencia en el sector, somos líderes en soluciones de seguridad integral. Nuestro compromiso es brindar tranquilidad y protección a nuestros clientes.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">Técnicos certificados y especializados</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">Garantía en todos nuestros servicios</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">Soporte técnico 24/7</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">Precios competitivos y transparentes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-gray-600 to-gray-800 rounded-lg p-8 text-white">
+                        <h3 class="text-3xl font-bold mb-4">+1000</h3>
+                        <p class="text-lg mb-4">Clientes Satisfechos</p>
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div>
+                                <h4 class="text-2xl font-bold">24/7</h4>
+                                <p class="text-sm">Monitoreo</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold">365</h4>
+                                <p class="text-sm">Días al año</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold">10+</h4>
+                                <p class="text-sm">Años experiencia</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold">100%</h4>
+                                <p class="text-sm">Garantizado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">¿Listo para Proteger tu Hogar o Negocio?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Contáctanos ahora y recibe una cotización personalizada sin compromiso. Nuestros expertos te asesorarán en la mejor solución para tus necesidades.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                    <div class="text-3xl mb-4">📞</div>
+                    <h3 class="text-xl font-bold mb-2">Llámanos</h3>
+                    <p>Atención inmediata</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                    <div class="text-3xl mb-4">💬</div>
+                    <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
+                    <p>Respuesta rápida</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                    <div class="text-3xl mb-4">📧</div>
+                    <h3 class="text-xl font-bold mb-2">Email</h3>
+                    <p>Cotizaciones detalladas</p>
+                </div>
+            </div>
+            
+            <button onclick="contactarWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-12 rounded-full text-xl transition-all transform hover:scale-105 shadow-lg">
+                💬 Chatear por WhatsApp
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                            <img src="" alt="Seguridad 365" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" id="logoImgFooter">
+                            <span class="text-gray-700 font-bold text-lg" style="display: none;" id="logoFallbackFooter">🛡️</span>
+                        </div>
+                        <div class="flex items-baseline space-x-1">
+                            <h3 class="text-xl font-light tracking-wide text-gray-300">SEGURIDAD</h3>
+                            <span class="text-xl font-bold text-red-500">365</span>
+                            <div class="w-1 h-1 bg-red-500 rounded-full ml-1"></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Protegiendo lo que más valoras, todos los días del año.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Cámaras de Seguridad</li>
+                        <li>Sistemas de Alarmas</li>
+                        <li>Control de Accesos</li>
+                        <li>Redes de Internet</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>📍 Disponible en toda la ciudad</p>
+                        <p>⏰ Atención 24/7</p>
+                        <p>🚀 Respuesta inmediata</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Seguridad 365. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <button onclick="contactarWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106"/>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        function contactarWhatsApp() {
+            const mensaje = "¡Hola! Me interesa conocer más sobre los servicios de Seguridad 365. ¿Podrían brindarme información?";
+            const numeroWhatsApp = "59891480786"; // Tu número de WhatsApp
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Logo upload functionality with permanent storage
+        document.getElementById('logoInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoImg = document.getElementById('logoImg');
+                    const logoFallback = document.getElementById('logoFallback');
+                    const logoUploader = document.getElementById('logoUploader');
+                    const logoImgFooter = document.getElementById('logoImgFooter');
+                    const logoFallbackFooter = document.getElementById('logoFallbackFooter');
+                    
+                    // Save logo to localStorage for permanent storage
+                    localStorage.setItem('seguridad365_logo', e.target.result);
+                    
+                    // Update header logo
+                    logoImg.src = e.target.result;
+                    logoImg.style.display = 'block';
+                    logoFallback.style.display = 'none';
+                    logoUploader.style.display = 'none';
+                    
+                    // Update footer logo
+                    logoImgFooter.src = e.target.result;
+                    logoImgFooter.style.display = 'block';
+                    logoFallbackFooter.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Load saved logo on page load
+        window.addEventListener('load', function() {
+            const savedLogo = localStorage.getItem('seguridad365_logo');
+            if (savedLogo) {
+                const logoImg = document.getElementById('logoImg');
+                const logoFallback = document.getElementById('logoFallback');
+                const logoUploader = document.getElementById('logoUploader');
+                const logoImgFooter = document.getElementById('logoImgFooter');
+                const logoFallbackFooter = document.getElementById('logoFallbackFooter');
+                
+                // Update header logo
+                logoImg.src = savedLogo;
+                logoImg.style.display = 'block';
+                logoFallback.style.display = 'none';
+                logoUploader.style.display = 'none';
+                
+                // Update footer logo
+                logoImgFooter.src = savedLogo;
+                logoImgFooter.style.display = 'block';
+                logoFallbackFooter.style.display = 'none';
+            }
+        });
+
+        // Add scroll effect to service cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'994f85a0d3f01ff6',t:'MTc2MTU0MDA5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>                            
